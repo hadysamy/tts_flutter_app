@@ -2,7 +2,7 @@ name: Build Flutter APK
 
 permissions:
   contents: read
-  actions: write    # needed for upload-artifact
+  actions: write    # needed for v4 artifact uploads
 
 on:
   push:
@@ -29,8 +29,8 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Upload APK as artifact (v2)
-        uses: actions/upload-artifact@v2
+      - name: Upload APK as artifact (v4)
+        uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
